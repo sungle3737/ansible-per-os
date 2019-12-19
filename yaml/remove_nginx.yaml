@@ -1,0 +1,8 @@
+---
+- name: Uninstall nginx on linux
+  hosts: cents
+  gather_facts: no
+
+  tasks:
+    - name: install nginx web server
+      yum: name=nginx state=absent
