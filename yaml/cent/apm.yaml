@@ -16,6 +16,9 @@
     - name: start apaceh web server
       service: name=httpd state=started
 
+    - name: Register Startup mariadb
+      shell: systemctl enable mariadb
+
     - name: start mariadb
       service: name=mariadb state=started
 
