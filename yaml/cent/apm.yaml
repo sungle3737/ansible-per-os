@@ -8,6 +8,9 @@
       yum: name=httpd state=present
 
     - name: install Maria DB
+      yum: name=mariadb state=present
+
+    - name: install Maria DB
       yum: name=mariadb-server state=present
 
     - name: install PHP
