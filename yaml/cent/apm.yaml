@@ -4,6 +4,9 @@
   gather_facts: no
 
   tasks:
+    - name: yum update
+      shell: yum update -y
+
     - name: install apache http server
       yum: name=httpd state=present
 
