@@ -1,6 +1,6 @@
 ---
 - name: Install nginx on linux
-  hosts: nginx
+  hosts: cents
   gather_facts: no
 
   tasks:
