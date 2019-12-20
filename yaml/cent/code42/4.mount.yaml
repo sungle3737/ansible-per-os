@@ -17,4 +17,4 @@
         shell: mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
 
       - name: Register StartUp
-        shell: name=cifs-utils state=present
+        shell: []
