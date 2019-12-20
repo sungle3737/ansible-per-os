@@ -1,0 +1,17 @@
+---
+- name: Start apache and register startup mariadb
+  hosts: cents
+  gather_facts: no
+
+  tasks:
+    - name: start apaceh web server
+      service: name=httpd state=started
+
+    - name: Register Startup mariadb
+      shell: systemctl enable mariadb
+
+    - name: start mariadb
+      service: name=mariadb state=started
+
+    - name: disable firewall
+      shell: systemctl stop firewalld

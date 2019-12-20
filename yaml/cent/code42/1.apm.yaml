@@ -18,15 +18,3 @@
 
     - name: install PHP
       yum: name=php state=present
-
-    - name: start apaceh web server
-      service: name=httpd state=started
-
-    - name: Register Startup mariadb
-      shell: systemctl enable mariadb
-
-    - name: start mariadb
-      service: name=mariadb state=started
-
-    - name: disable firewall
-      shell: systemctl stop firewalld

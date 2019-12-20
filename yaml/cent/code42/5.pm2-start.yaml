@@ -1,0 +1,4 @@
+---
+- name: Start apache and register startup mariadb
+  hosts: cents
+  gather_facts: no

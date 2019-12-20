@@ -22,14 +22,15 @@ service apache2 start
 
 
 #mount
-mkdir /nas
-cd /nas
-mkdir /smms_output
-sudo mount -t cifs //10.0.0.148/smms_output /nas/smms_output -o user=rlaehdms,pass=tmxmfltm,rw,vers=1.0
+mkdir /mnt/nas/smms_output -p
+yum install -y cifs-utils
+sudo mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
 
 #set svr root
-SVR_ROOT=/nas/smms_output
+SVR_ROOT=/mnt/nas/smms_output
 
+# install node
+# install pm2 global
 
 #start pm2
 pm2 serve $SVR_ROOT 58022 --force --name "nassvr_code42_1"
