@@ -24,7 +24,7 @@ service apache2 start
 #mount
 mkdir /mnt/nas/smms_output -p
 yum install -y cifs-utils
-sudo mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
+mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
 
 #set svr root
 SVR_ROOT=/mnt/nas/smms_output
@@ -33,4 +33,5 @@ SVR_ROOT=/mnt/nas/smms_output
 # install pm2 global
 
 #start pm2
-pm2 serve $SVR_ROOT 58022 --force --name "nassvr_code42_1"
+pm2 serve pm2 serve $SVR_ROOT 58022 --name "nassvr_code42_1"
+

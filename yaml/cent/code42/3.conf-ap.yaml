@@ -1,0 +1,11 @@
+---
+- name: Install Node and pm2
+  hosts: cents
+  gather_facts: no
+
+  tasks:
+    - name: upgrade all packages
+      yum: name='*' state=latest
+
+    - name: install apache http server
+      yum: name=httpd state=present

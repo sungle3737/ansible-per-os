@@ -1,0 +1,16 @@
+---
+  - name: Install Node and pm2
+    hosts: cents
+    gather_facts: no
+  
+    tasks:
+      - name: upgrade all packages
+        yum: name='*' state=latest
+  
+      - name: install apache http server
+        yum: name=cifs-utils state=present
+
+
+        mkdir /mnt/nas/smms_output -p
+yum install -y cifs-utils
+mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
