@@ -7,12 +7,14 @@
       - name: upgrade all packages
         yum: name='*' state=latest
   
-      - name: install apache http server
+      - name: install pre-mount tool for cifs
         yum: name=cifs-utils state=present
 
+      - name: Make Directories
+        shell: mkdir /mnt/nas/smms_output -p
 
-        mkdir /mnt/nas/smms_output -p
-yum install -y cifs-utils
-mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
+      - name: Mount drive
+        shell: mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
 
-UUID=
+      - name: Register StartUp
+        shell: name=cifs-utils state=present

@@ -1,11 +1,11 @@
 ---
-- name: Install Node and pm2
+- name: Copy Files and Config Apache
   hosts: cents
   gather_facts: no
 
   tasks:
-    - name: upgrade all packages
-      yum: name='*' state=latest
+    - name: Copy directory
+      copy: name=httpd state=present
 
-    - name: install apache http server
+    - name: Apache, directory Link
       yum: name=httpd state=present

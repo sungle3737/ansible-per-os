@@ -1,0 +1,14 @@
+---
+- name: pm2 start and Startup
+  hosts: cents
+  gather_facts: no
+
+  tasks:
+    - name: pm2 serve
+      shell: pm2 serve /mnt/nas/smms_output 58022 --force --name "nassvr_code42_1"
+
+    - name: pm2 startup
+      shell: pm2 startup
+
+    - name: pm2 save
+      shell: pm2 save

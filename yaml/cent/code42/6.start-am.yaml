@@ -1,14 +1,17 @@
 ---
-- name: Start apache and register startup mariadb
+- name: Start and startup AM
   hosts: cents
   gather_facts: no
 
   tasks:
-    - name: start apaceh web server
+    - name: start apache web server
       service: name=httpd state=started
 
     - name: Register Startup mariadb
       shell: systemctl enable mariadb
+
+    - name: Register Startup apache
+      shell: systemctl enable httpd
 
     - name: start mariadb
       service: name=mariadb state=started
