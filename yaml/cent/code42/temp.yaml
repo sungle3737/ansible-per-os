@@ -10,6 +10,6 @@
           src: //10.0.0.148/smms_output
           opts: rw, vers=1.0, credentials=cifs_cred
           state: mounted
-          fstype: "cifs"
-          boot: true
+          fstype: cifs
+          passno: null
         become: true
