@@ -30,4 +30,3 @@
             vers: 1.0
           state: mounted
           fstype: cifs
-          boot: yes
