@@ -8,7 +8,7 @@
         mount:
           path: /mnt/nas/smms_output
           src: //10.0.0.148/smms_output
-          opts: user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
+          opts: user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0,credentials=cifs_creds
           state: mounted
           fstype: cifs
           boot: true
