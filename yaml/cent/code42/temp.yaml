@@ -6,6 +6,6 @@
     tasks:
       - name: ensure a boot script exists
         local_action:
-          module: vr_startup_script
-          name: vr_startup_script
+          module: vultr_startup_script
+          name: vultr_startup_script
           script: mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
