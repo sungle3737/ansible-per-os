@@ -4,15 +4,5 @@
     gather_facts: no
   
     tasks:
-      - name: Mount and bind a volume
-        mount:
-          path: /mnt/nas/smms_output
-          src: //10.0.0.148/smms_output
-          opts:
-            user: Sln_Server_Account
-            pass: Tmxmfltm\!234
-            rw:
-            vers: 1.0
-          state: mounted
-          fstype: cifs
-          boot: yes
+      - name: Mount drive
+        shell: mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
