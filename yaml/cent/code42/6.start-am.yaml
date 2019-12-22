@@ -1,5 +1,5 @@
 ---
-- name: Start and startup AM
+- name: Start and startup AM and Firewalld setting
   hosts: cents
   gather_facts: no
 
@@ -20,4 +20,7 @@
       shell: systemctl stop firewalld
 
     - name: enable ports
-      shell: []
+      shell: firewall-cmd --permanent --zone=public --add-port=80/tcp
+
+    - name: reload firewall
+      shell: firewall-cmd --reload

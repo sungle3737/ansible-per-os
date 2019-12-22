@@ -9,3 +9,13 @@
 
     - name: Apache, directory Link
       yum: name=httpd state=present
+
+    - name: replace line
+      replace : name=httpd state=present
+
+    - name: enable php
+      yum: name=httpd state=present
+
+    - name: restart apache
+      sysctl: name=httpd state=present
+      
