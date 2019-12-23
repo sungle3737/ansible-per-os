@@ -6,8 +6,8 @@
   tasks:
     - name: Copy source Directory
       synchronize:
-        src: /var/www/Pj_Checker/
-        dest: /var/www/Pj_Checker/
+        src: /var/www/Pj_Checker
+        dest: /var/www/Pj_Checker
 
     - name: Replace Root Directory
       replace:
