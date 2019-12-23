@@ -12,7 +12,6 @@
         mode: push
         src: /var/www/Pj_Checker
         dest: /var/www/Pj_Checker
-        become: no
 
     - name: Replace Root Directory
       replace:
