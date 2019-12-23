@@ -4,18 +4,18 @@
   gather_facts: no
 
   tasks:
-    - name: Copy directory
-      copy: name=httpd state=present
+    # - name: Copy directory
+    #   copy: name=httpd state=present
 
-    - name: Apache, directory Link
-      yum: name=httpd state=present
+    - name: Replace Root Directory
+      replace:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: /var/www/html
+        replace: /var/www/Pj_Checker
 
-    - name: replace line
-      replace : name=httpd state=present
-
-    - name: enable php
-      yum: name=httpd state=present
-
-    - name: restart apache
-      sysctl: name=httpd state=present
+    - name: Restart service httpd, in all cases
+      service:
+        name: httpd
+        state: restarted
+    
       
