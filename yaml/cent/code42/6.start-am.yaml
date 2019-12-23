@@ -16,6 +16,9 @@
     - name: start mariadb
       service: name=mariadb state=started
 
+    - name: reload firewall
+      shell: firewall-cmd --reload
+
     - name: enable ports
       shell: firewall-cmd --permanent --zone=public --add-port=80/tcp
 
