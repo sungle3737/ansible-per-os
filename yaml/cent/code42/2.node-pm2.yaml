@@ -9,7 +9,7 @@
     - name: Update all packages - Always take a few seconds
       yum: name='*' state=latest
     
-    - name: Install nvm - After curl
+    - name: Install nvm - This will takes time
       shell: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
        
     - name: Reload bash

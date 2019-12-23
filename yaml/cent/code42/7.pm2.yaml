@@ -5,7 +5,7 @@
 
   tasks:
     - name: pm2 serve
-      shell: pm2 serve /mnt/nas/smms_output 58022 --force --name "nassvr_code42_1"
+      shell: pm2 serve /mnt/nas/smms_output 58022 --force --name "nassvr_code42_1" || echo running
 
     - name: pm2 startup
       shell: pm2 startup

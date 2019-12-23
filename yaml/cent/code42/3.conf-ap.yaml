@@ -11,7 +11,7 @@
       yum: name=sshpass state=present
 
     - name: add known hosts
-      shell: ssh-keyscan 10.0.0.190 > ~/.ssh/known_hosts
+      shell: ssh-keyscan -H 10.0.0.190 > ~/.ssh/known_hosts
 
     - name: copy sync
       shell: sshpass -p "le153183" rsync -avzh root@10.0.0.190:/var/www/Pj_Checker /var/www
