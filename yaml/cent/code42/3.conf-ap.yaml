@@ -19,7 +19,6 @@
         src: rsync://10.0.0.190:/var/www/Pj_Checker
         dest: /var/www
         rsync_opts: "{{sync_rsync_opts|default(omit)}}"
-      delegate_to: "{{inventory_hostname}}"
 
     - name: Replace Root Directory
       replace:
