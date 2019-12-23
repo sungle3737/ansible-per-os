@@ -4,14 +4,14 @@
   gather_facts: no
 
   tasks:
-    - name: upgrade all packages
+    - name: Update all packages - Always take a few seconds
       yum: name='*' state=latest
     
     - name: Install nvm
       shell: curl https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
        
-    - name: reload bash
-      shell: . /home/username/.bashrc
+    - name: Reload bash
+      shell: . /root/.bashrc
      
     - name: Install node by nvm
       shell: nvm install node
