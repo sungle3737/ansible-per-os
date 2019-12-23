@@ -16,7 +16,7 @@
     - name: start mariadb
       service: name=mariadb state=started
 
-    - name: reload firewall
+    - name: start firewall
       shell: systemctl start firewalld
 
     - name: enable ports
