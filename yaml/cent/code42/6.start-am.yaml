@@ -16,9 +16,6 @@
     - name: start mariadb
       service: name=mariadb state=started
 
-    - name: disable firewall
-      shell: systemctl stop firewalld
-
     - name: enable ports
       shell: firewall-cmd --permanent --zone=public --add-port=80/tcp
 
