@@ -1,7 +1,6 @@
 ---
 - name: Start and startup AM and Firewalld setting
   hosts: cents
-  accelerate: true
   gather_facts: no
 
   tasks:

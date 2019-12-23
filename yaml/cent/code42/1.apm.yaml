@@ -1,7 +1,6 @@
 ---
 - name: Install Apache PHP and Maria DB to centOS
   hosts: cents
-  accelerate: true
   gather_facts: no
 
   tasks:

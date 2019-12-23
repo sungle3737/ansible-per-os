@@ -1,7 +1,6 @@
 ---
 - name: Install Node and pm2
   hosts: cents
-  accelerate: true
   gather_facts: no
 
   tasks:

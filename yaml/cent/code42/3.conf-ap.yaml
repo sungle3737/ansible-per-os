@@ -4,7 +4,7 @@
   gather_facts: no
 
   tasks:
-    - name: Copy source Directory - push
+    - name: Install python 3 to use synchromize
       yum: name=python3 state=present
 
     - name: Copy source Directory - push

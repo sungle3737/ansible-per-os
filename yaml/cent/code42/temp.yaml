@@ -1,7 +1,6 @@
 ---
   - name: mount and startup
     hosts: localhost
-    accelerate: true
     gather_facts: no
   
     tasks:
