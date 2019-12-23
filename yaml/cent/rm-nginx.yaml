@@ -1,6 +1,7 @@
 ---
 - name: Uninstall nginx on linux
   hosts: cents
+  accelerate: true
   gather_facts: no
 
   tasks:
