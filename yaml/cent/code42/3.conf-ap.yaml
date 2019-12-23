@@ -7,10 +7,11 @@
     - name: Install python 3 to use synchromize
       yum: name=python3 state=present
     
-    - name: install the latest version of rsync
-      yum:
-        name: rsync
-        state: latest
+    - name: install rsync
+      yum: name=rsync state=present
+    
+    - name: install sshpass
+      yum: name=sshpass state=present
 
     - name: Copy source Directory - push
       synchronize:
