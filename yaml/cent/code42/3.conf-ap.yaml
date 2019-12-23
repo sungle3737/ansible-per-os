@@ -4,9 +4,6 @@
   gather_facts: no
 
   tasks:
-    - name: Install python 3 to use synchromize
-      yum: name=python3 state=present
-    
     - name: install rsync
       yum: name=rsync state=present
     
