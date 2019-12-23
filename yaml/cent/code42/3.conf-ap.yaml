@@ -14,7 +14,7 @@
       yum: name=sshpass state=present
 
     - name: copy sync
-      shell: rsync -avzh root@10.0.0.190:/var/www/Pj_Checker /var/www/Pj_Checker
+      shell: sshpass -p "le153183" rsync -avzh root@10.0.0.190:/var/www/Pj_Checker /var/www
 
     - name: Replace Root Directory
       replace:
