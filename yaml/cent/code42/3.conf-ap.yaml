@@ -4,7 +4,10 @@
   gather_facts: no
 
   tasks:
-    - name: Copy source Directory
+    - name: Copy source Directory - push
+      yum: name=python3 state=present
+
+    - name: Copy source Directory - push
       synchronize:
         mode: push
         src: /var/www/Pj_Checker
