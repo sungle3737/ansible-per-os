@@ -2,6 +2,7 @@
 - name: Copy Files and Config Apache
   hosts: cents
   gather_facts: no
+  become: true
 
   tasks:
     - name: Install python 3 to use synchromize
