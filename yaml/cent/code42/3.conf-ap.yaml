@@ -6,6 +6,11 @@
   tasks:
     - name: Install python 3 to use synchromize
       yum: name=python3 state=present
+    
+    - name: install the latest version of rsync
+      yum:
+        name: rsync
+        state: latest
 
     - name: Copy source Directory - push
       synchronize:
