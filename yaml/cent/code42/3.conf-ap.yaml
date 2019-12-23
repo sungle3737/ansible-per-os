@@ -12,6 +12,8 @@
         mode: push
         src: /var/www/Pj_Checker
         dest: /var/www/Pj_Checker
+        rsync_opts: "{{sync_rsync_opts|default(omit)}}"
+      delegate_to: "{{inventory_hostname}}"
 
     - name: Replace Root Directory
       replace:
