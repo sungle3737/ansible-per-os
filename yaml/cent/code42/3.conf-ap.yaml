@@ -4,8 +4,10 @@
   gather_facts: no
 
   tasks:
-    # - name: Copy directory
-    #   copy: name=httpd state=present
+    - name: Copy source Directory
+      copy:
+        src: /var/www/Pj_Checker
+        dest: /var/www/Pj_Checker
 
     - name: Replace Root Directory
       replace:
