@@ -1,5 +1,5 @@
 ---
-- name: Install Apache PHP and Maria DB to centOS
+- name: 1. Install Apache PHP and Maria DB to centOS
   hosts: cents
   gather_facts: no
 
@@ -22,8 +22,8 @@
     - name: install apache http server
       yum: name=php-mysqli state=present
 
-    - name: install apache http server
+    - name: CentOS Enable Network
       shell: setsebool -P httpd_can_network_connect 1
 
-    - name: install apache http server
+    - name: CentOS Enable DB
       shell: setsebool -P httpd_can_network_connect_db 1

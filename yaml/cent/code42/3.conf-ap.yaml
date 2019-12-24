@@ -1,5 +1,5 @@
 ---
-- name: Copy Files and Config Apache
+- name: 3. Copy Files and Config Apache
   hosts: cents
   gather_facts: no
   vars:
@@ -9,13 +9,13 @@
     dirname: Pj_Checker
 
   tasks:
-    - name: install rsync
+    - name: Install rsync
       yum: name=rsync state=present
     
     - name: install sshpass
       yum: name=sshpass state=present
 
-    - name: add known hosts
+    - name: Add known hosts
       shell: ssh-keyscan -H {{ server }} > ~/.ssh/known_hosts
 
     - name: copy sync

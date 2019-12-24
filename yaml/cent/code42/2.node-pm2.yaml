@@ -1,5 +1,5 @@
 ---
-- name: Install Node and pm2
+- name: 2. Install Node and pm2
   hosts: cents
   gather_facts: no
   vars:
