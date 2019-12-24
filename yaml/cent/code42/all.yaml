@@ -1,7 +1,7 @@
 ---
   - import_playbook: 1.apm.yaml
   - import_playbook: 2.node-pm2.yaml
-  - import_playbook: 3.conf-ap.yaml.yaml
+  - import_playbook: 3.conf-ap.yaml
   - import_playbook: 4.mount.yaml
   - import_playbook: 6.start-am.yaml
   - import_playbook: 7.pm2.yaml
