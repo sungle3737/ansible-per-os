@@ -2,6 +2,12 @@
   - name: Install Node and pm2
     hosts: cents
     gather_facts: no
+    vars:
+      mntdir: /mnt/nas/smms_output
+      nasdir: //10.0.0.148/smms_output
+      nasuser: Sln_Server_Account
+      naspass: Tmxmfltm\!234
+      initd: /etc/init.d
   
     tasks:
       - name: upgrade all packages

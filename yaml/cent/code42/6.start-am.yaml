@@ -2,6 +2,8 @@
 - name: Start and startup AM and Firewalld setting
   hosts: cents
   gather_facts: no
+  vars:
+    http: 80
 
   tasks:
     - name: start apache web server

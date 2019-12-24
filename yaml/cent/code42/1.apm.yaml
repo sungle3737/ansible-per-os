@@ -16,7 +16,7 @@
     - name: install Maria DB
       yum: name=mariadb-server state=present
 
-    - name: install PHP\
+    - name: install PHP
       yum: name=php state=present
 
     - name: install apache http server

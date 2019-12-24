@@ -2,6 +2,14 @@
 - name: Copy Files and Config Apache
   hosts: cents
   gather_facts: no
+  vars:
+    server: 10.0.0.190
+    sshpass: le153183
+    serverdir: /var/www/Pj_Checker
+    nodedir: /var/www
+    apconf: /etc/httpd/conf/httpd.conf
+    phpconf: /etc/php.ini
+    html: /var/www/html
 
   tasks:
     - name: install rsync

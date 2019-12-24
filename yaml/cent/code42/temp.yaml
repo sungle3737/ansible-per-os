@@ -1,11 +1,11 @@
 ---
-  - name: mount and startup
-    hosts: localhost
+  - name: pm2 start and Startup
+    hosts: cents
     gather_facts: no
+    vars:
+      pm2port: 58022
+      pm2name: nassvr_code42_1
   
     tasks:
-      - name: ensure a boot script exists
-        local_action:
-          module: vultr_startup_script
-          name: vultr_startup_script
-          script: rm /var/www/pj/pj
+      - name: file
+        shell: echo {{ pm2port }} >> ~/.test

@@ -3,7 +3,7 @@
   hosts: cents
   gather_facts: no
   vars:
-    NODEJS_VERSION: "12"
+    nvm: v0.35.2
 
   tasks:
     - name: Update all packages - Always take a few seconds
