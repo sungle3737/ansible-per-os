@@ -5,10 +5,11 @@
   vars:
     pm2port: 58022
     pm2name: nassvr_code42_1
+    mntdir: /mnt/nas/smms_output
 
   tasks:
     - name: pm2 try serve catch restart
-      shell: pm2 serve /mnt/nas/smms_output 58022 --force --name "nassvr_code42_1" || pm2 restart nassvr_code42_1
+      shell: pm2 serve {{ mntdir }} {{ pm2port }} --force --name "{{ pm2name }}" || pm2 restart {{ pm2name }}
 
     - name: pm2 startup
       shell: pm2 startup

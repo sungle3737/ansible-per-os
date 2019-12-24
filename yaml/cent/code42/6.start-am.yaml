@@ -3,7 +3,7 @@
   hosts: cents
   gather_facts: no
   vars:
-    http: 80
+    httport: 80
 
   tasks:
     - name: start apache web server
@@ -22,7 +22,7 @@
       shell: systemctl start firewalld
 
     - name: enable ports
-      shell: firewall-cmd --permanent --zone=public --add-port=80/tcp
+      shell: firewall-cmd --permanent --zone=public --add-port={{ httport }}/tcp
 
     - name: reload firewall
       shell: firewall-cmd --reload

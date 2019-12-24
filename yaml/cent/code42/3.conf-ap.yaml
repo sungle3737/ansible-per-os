@@ -5,11 +5,8 @@
   vars:
     server: 10.0.0.190
     sshpass: le153183
-    serverdir: /var/www/Pj_Checker
-    nodedir: /var/www
-    apconf: /etc/httpd/conf/httpd.conf
-    phpconf: /etc/php.ini
-    html: /var/www/html
+    serverdir: /var/www
+    dirname: Pj_Checker
 
   tasks:
     - name: install rsync
@@ -19,16 +16,16 @@
       yum: name=sshpass state=present
 
     - name: add known hosts
-      shell: ssh-keyscan -H 10.0.0.190 > ~/.ssh/known_hosts
+      shell: ssh-keyscan -H {{ server }} > ~/.ssh/known_hosts
 
     - name: copy sync
-      shell: sshpass -p "le153183" rsync -avzh root@10.0.0.190:/var/www/Pj_Checker /var/www
+      shell: sshpass -p "{{ sshpass }}" rsync -avzh root@{{ server }}:{{ serverdir }}/{{ dirname }} /var/www
 
     - name: Replace Root Directory
       replace:
         path: /etc/httpd/conf/httpd.conf
         regexp: /var/www/html
-        replace: /var/www/Pj_Checker
+        replace: /var/www/{{ dirname }}
 
     - name: PHP enable
       replace:
