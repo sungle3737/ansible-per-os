@@ -28,7 +28,4 @@
         regexp: short_open_tag = Off
         replace: short_open_tag = On
 
-    - name: Restart service httpd, in all cases
-      service:
-        name: httpd
-        state: restarted
+    - name: Restart service httpd, in 

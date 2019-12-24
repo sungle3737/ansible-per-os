@@ -14,5 +14,18 @@
         shell: mkdir /mnt/nas/smms_output -p
 
       - name: Mount drive
-        shell: mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0
-        
+        shell: mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm\!234,rw,vers=1.0 || echo "mounted"
+
+      - name: make script
+        shell: |
+          echo "#!/bin/sh
+          # chkconfig: 234 90 90
+          # description: mount nas drive
+          mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user=Sln_Server_Account,pass=Tmxmfltm!234,rw,vers=1.0 || echo
+          " > /etc/init.d/mount
+
+      - name: make script
+        shell: |
+          chmod 755 /etc/init.d/mount
+          chwon root.root /etc/init.d/mount
+          chkconfig --add mount

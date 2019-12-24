@@ -4,7 +4,7 @@
   gather_facts: no
 
   tasks:
-    - name: pm2 serve
+    - name: pm2 try serve catch restart
       shell: pm2 serve /mnt/nas/smms_output 58022 --force --name "nassvr_code42_1" || pm2 restart nassvr_code42_1
 
     - name: pm2 startup
