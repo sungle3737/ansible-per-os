@@ -18,3 +18,12 @@
 
     - name: install PHP
       yum: name=php state=present
+
+    - name: install apache http server
+      yum: name=php-mysqli state=present
+
+    - name: install apache http server
+      shell: setsebool -P httpd_can_network_connect 1
+
+    - name: install apache http server
+      shell: setsebool -P httpd_can_network_connect_db 1
