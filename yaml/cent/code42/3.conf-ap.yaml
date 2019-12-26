@@ -3,8 +3,8 @@
   hosts: cents
   gather_facts: no
   vars:
-    server: 10.0.0.190
-    sshpass: le153183
+    server: 10.0.50.161
+    sshpass: ckaRoskfk!23
     serverdir: /var/www
     dirname: Pj_Checker
 
@@ -14,6 +14,9 @@
     
     - name: install sshpass
       yum: name=sshpass state=present
+
+    - name: make ssh folder
+      shell: mkdir /root/.ssh
 
     - name: Add known hosts
       shell: ssh-keyscan -H {{ server }} > ~/.ssh/known_hosts
