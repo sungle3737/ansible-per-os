@@ -1,6 +1,6 @@
 ---
   - name: Install Apache PHP and Maria DB to centOS
-    hosts: cents
+    hosts: delab 
     gather_facts: no
   
     tasks:

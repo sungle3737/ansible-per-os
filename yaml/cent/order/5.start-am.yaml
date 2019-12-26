@@ -1,6 +1,6 @@
 ---
 - name: 5. Start and startup AM and Firewalld setting
-  hosts: cents
+  hosts: delab
   gather_facts: no
   vars:
     httport: 80

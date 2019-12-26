@@ -1,10 +1,9 @@
 ---
   - name: 4. Install Node and pm2
-    hosts: cents
+    hosts: test
     gather_facts: no
     vars:
       mntdir: /mnt/nas/smms_output
-      nasdir: //10.0.0.148/smms_output
       nasuser: Sln_Server_Account
       naspass: Tmxmfltm\!234
   
@@ -19,14 +18,14 @@
         shell: mkdir {{mntdir}} -p
 
       - name: Mount drive
-        shell: mount -t cifs //10.0.0.148/smms_output /mnt/nas/smms_output -o user={{naspass}},pass={{nasuser}},rw,vers=1.0 || echo "mounted"
+        shell: mount -t cifs {{nasdir}} {{mntdir}} -o user={{nasuser}},pass={{naspass}},rw,vers=1.0,context=system_u:object_r:httpd_sys_content_t:s0 || echo "mounted"
 
       - name: make mount script
         shell: |
           echo "#!/bin/sh
           # chkconfig: 234 90 90
           # description: mount nas drive
-          mount -t cifs {{nasdir}} {{mntdir}} -o user={{naspass}},pass={{nasuser}},rw,vers=1.0 || echo "mounted"
+          mount -t cifs {{nasdir}} {{mntdir}} -o user={{nasuser}},pass={{naspass}},rw,vers=1.0,context=system_u:object_r:httpd_sys_content_t:s0 || echo "mounted"
           " > /etc/init.d/mount
 
       - name: make it startup

@@ -1,6 +1,6 @@
 ---
 - name: 2. Install Node and pm2
-  hosts: cents
+  hosts: delab
   gather_facts: no
   vars:
     nvm: v0.35.2

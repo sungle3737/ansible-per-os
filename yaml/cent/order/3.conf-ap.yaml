@@ -1,6 +1,6 @@
 ---
 - name: 3. Copy Files and Config Apache
-  hosts: cents
+  hosts: delab
   gather_facts: no
   vars:
     server: 10.0.50.161
@@ -14,9 +14,9 @@
     
     - name: install sshpass
       yum: name=sshpass state=present
-
+    
     - name: make ssh folder
-      shell: mkdir /root/.ssh
+      shell: mkdir /root/.ssh -p
 
     - name: Add known hosts
       shell: ssh-keyscan -H {{ server }} > ~/.ssh/known_hosts
