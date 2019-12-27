@@ -1,0 +1,22 @@
+---
+- name: 2. Install Node and pm2
+  hosts: delab
+  gather_facts: no
+  vars:
+    nvm: v0.35.2
+
+  tasks:
+    - name: Update all packages - Always take a few seconds
+      yum: name='*' state=latest
+    
+    - name: Install nvm - This will takes time
+      shell: curl https://raw.githubusercontent.com/creationix/nvm/{{ nvm }}/install.sh | bash
+       
+    - name: Reload bash
+      shell: . /root/.bashrc
+     
+    - name: Install node by nvm
+      shell: source /root/.nvm/nvm.sh && nvm install node
+       
+    - name: Install pm2
+      shell: npm i -g pm2

@@ -1,0 +1,47 @@
+---
+  - name: 7.dbpush
+    hosts: delab
+    gather_facts: no
+    vars:
+      dbname: delab_test
+      sqlpath: /var/www/Pj_Checker/Ansible/test.sql
+  
+    tasks:
+      - name: rpm rhel repository
+        shell: rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm || echo
+
+      - name: install python pip
+        yum: name=python-pip state=present
+      
+      - name: Install Cent os My Sql - python
+        yum: name={{item}} state=present
+        with_items:
+          - mysql-devel
+          - python-devel
+          - MySQL-python
+
+      - name: Replace Root Directory
+        replace:
+          path: /etc/php.ini
+          regexp: ;date.timezone =
+          replace: date.timezone = Asia/Seoul
+
+      - name: restart httpd
+        shell: systemctl restart httpd
+
+      - name: Set root user password
+        mysql_user:
+          name: root
+          password: ""
+          check_implicit_admin: true
+
+      - name: Create a new database with name {{dbname}}
+        mysql_db:
+          name: delab_test
+          state: present
+
+      - name: sql
+        mysql_db:
+          name: delab_test
+          state: import
+          target: /var/www/Pj_Checker/Ansible/test.sql

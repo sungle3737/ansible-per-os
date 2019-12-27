@@ -1,0 +1,42 @@
+---
+- name: 3. Copy Files and Config Apache
+  hosts: delab
+  gather_facts: no
+  vars:
+    server: 10.0.50.161
+    sshpass: ckaRoskfk!23
+    serverdir: /var/www
+    dirname: Pj_Checker
+
+  tasks:
+    - name: Install rsync
+      yum: name=rsync state=present
+    
+    - name: install sshpass
+      yum: name=sshpass state=present
+    
+    - name: make ssh folder
+      shell: mkdir /root/.ssh -p
+
+    - name: Add known hosts
+      shell: ssh-keyscan -H {{ server }} > ~/.ssh/known_hosts
+
+    - name: copy sync
+      shell: sshpass -p "{{ sshpass }}" rsync -avzh root@{{ server }}:{{ serverdir }}/{{ dirname }} /var/www
+
+    - name: Replace Root Directory
+      replace:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: /var/www/html
+        replace: /var/www/{{ dirname }}
+
+    - name: PHP enable
+      replace:
+        path: /etc/php.ini
+        regexp: short_open_tag = Off
+        replace: short_open_tag = On
+
+    - name: Restart service httpd, in all cases
+      service:
+        name: httpd
+        state: restarted
