@@ -1,0 +1,17 @@
+---
+  - name: 1. Install All yum packages
+    hosts: delab
+    gather_facts: no
+  
+    tasks:
+      # rpm
+      - name: upgrade all packages
+        yum: name='*' state=latest
+  
+      - name: Install Cent os My Sql - python
+        yum: name={{item}} state=present
+
+        with_items:
+          - mysql-devel
+          - python-devel
+          - MySQL-python

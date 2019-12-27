@@ -1,0 +1,13 @@
+---
+  - name: 6. Start pm2 and Register Startup
+    hosts: delab1
+    gather_facts: no
+    vars:
+      name: NAME
+      value: value
+  
+    tasks:
+      - name: register mntdir environmental variable
+        lineinfile:
+          line: SetEnv {{name}} {{value}}
+          path: /etc/httpd/conf/httpd.conf

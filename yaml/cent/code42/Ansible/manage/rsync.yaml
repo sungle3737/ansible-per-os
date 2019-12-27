@@ -1,0 +1,13 @@
+---
+  - name: 3. Copy Files and Config Apache
+    hosts: delab1
+    gather_facts: no
+    vars:
+      admin: 10.0.50.161
+      sshpass: ckaRoskfk!23
+      serverdir: /var/www
+      dirname: Pj_Checker
+  
+    tasks:
+      - name: copy sync
+        shell: sshpass -p "{{ sshpass }}" rsync -avzh root@{{ admin }}:{{ serverdir }}/{{ dirname }} /var/www
