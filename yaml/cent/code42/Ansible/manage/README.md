@@ -1,1 +1,0 @@
-### for manage service

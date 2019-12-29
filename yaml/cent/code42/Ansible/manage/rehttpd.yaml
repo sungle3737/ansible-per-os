@@ -1,8 +1,0 @@
----
-  - name: restart httpd
-    hosts: delab1
-    gather_facts: no
-  
-    tasks:
-      - name: start apache web server
-        service: name=httpd state=restarted

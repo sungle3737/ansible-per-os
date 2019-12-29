@@ -1,1 +1,0 @@
-### vanilla files when developed

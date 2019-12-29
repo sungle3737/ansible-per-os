@@ -1,8 +1,0 @@
----
-  - name: Install Apache PHP and Maria DB to centOS
-    hosts: delab 
-    gather_facts: no
-  
-    tasks:
-      - name: Unconditionally reboot the machine with all defaults
-        reboot:
