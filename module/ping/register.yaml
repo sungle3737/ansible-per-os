@@ -1,0 +1,8 @@
+---
+  - name: register all by ping
+    hosts: target
+    gather_facts: no
+  
+    tasks:
+      - name: get pong by ping
+        ping:
