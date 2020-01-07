@@ -1,0 +1,9 @@
+---
+  - name: change ansible config
+    hosts: localhost
+    gather_facts: no
+  
+    tasks:
+
+config
+  command_warnings = false
